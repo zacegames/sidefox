@@ -99,7 +99,7 @@ public class EnemyBullet : MonoBehaviour
                 if (eRotStatus)
                 {
 
-                    eBullRigid.velocity
+                    // eBullRigid.velocity
 
 
                     transform.rotation = enemyRotationValues;

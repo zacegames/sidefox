@@ -29,7 +29,7 @@ public class TestSceneController : MonoBehaviour
 
         highestComboCount = 0;
 
-       // Debug.Log(SceneDimensions);
+        Debug.Log(SceneDimensions);
     }
 
     private void Update()
