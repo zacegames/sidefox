@@ -189,8 +189,10 @@ public class Player : MonoBehaviour
 
         playerMovementDirection = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
 
-        Debug.Log("Player Movement Direction - " + playerMovementDirection);
+        Debug.Log("Player Movement Direction X- " + playerMovementDirection.x);
+        Debug.Log("Player Movement Direction Y- " + playerMovementDirection.y);
         
+
 
         //Debug.Log("time.deltatime in update loop - " + Time.deltaTime);
 
@@ -385,7 +387,8 @@ public class Player : MonoBehaviour
 
     private void FixedUpdate()
     {
-        playerRB.velocity = playerMovementDirection * MoveSpeed;
+        playerRB.velocity = new Vector2 ((playerMovementDirection.x * MoveSpeed),(playerMovementDirection.y * MoveSpeed) * -1);
+        
     }
 
 
