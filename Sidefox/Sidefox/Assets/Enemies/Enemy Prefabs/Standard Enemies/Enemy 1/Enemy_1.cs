@@ -22,9 +22,10 @@ public class Enemy_1 : MonoBehaviour
     [Space(10, order = 4)]
 
     [Header("Bullet Values", order = 5)]
-    public EnemyBullet e1Bull;
-    public float eHoriBulletSpeed;
-    public float eVertBulletSpeed;
+    //public EnemyBullet bullClass;
+    
+    public GameObject enemybullet; // GameObject for 3D game
+    public float BulletSpeed;
     public int eBulletDamage;
     public float eBaseBulletTimer;
     public float eBulletTimer;
@@ -45,7 +46,7 @@ public class Enemy_1 : MonoBehaviour
     public Material hitMat;
 
     //GameObject for the next enemy bullet
-    public GameObject enemybullet; // GameObject for 3D game
+    
 
     //Set the enemy start position based on smovement pattern
     public int EnemyStartPos;
@@ -146,9 +147,6 @@ void Start()
         e1 = new Enemy_Base.eBaseValues(e1Speed, transform.position, RotateTowardsPlayer, e1RotationSpeed, false, eBaseBulletTimer);
 
         e1.EnemyMovementPattern = EnemyMovementPattern;
-
-        //Set the bullet values
-        e1Bull = enemybullet.gameObject.GetComponent<EnemyBullet>();
 
         //Set the enemy health bar canvas to the correct transform
         EnemyHealthBarCanvas = this.transform.GetChild(0);
@@ -375,17 +373,18 @@ void Start()
         e1.eBulletTimer -= Time.deltaTime;
 
         if (e1.eBulletTimer <= 0)
-        {
-            e1Bull.eTransform = transform.position;
+        {                      
+            GameObject bullet = Instantiate(enemybullet, new Vector3(transform.position.x - 2, transform.position.y, transform.position.z), transform.rotation);
 
-            Instantiate(e1Bull, new Vector3(transform.position.x - 2, transform.position.y, transform.position.z), transform.rotation);
+            bullet.GetComponent<EnemyBullet>().bullDamage = 10f;
 
-            e1Bull.eSetBulletValues(eHoriBulletSpeed, eVertBulletSpeed, 1, eBulletDamage, e1Speed, RotateTowardsPlayer, transform.rotation);
+            bullet.GetComponent<EnemyBullet>().bullSpeed = 10f;
 
+            bullet.GetComponent<EnemyBullet>().eRotationStatus = RotateTowardsPlayer;
 
-  
+            // float rot = Mathf.Atan2(-transform.position.y,-transform.position.x) * Mathf.Rad2Deg;
 
-  
+            // bullet.GetComponent<EnemyBullet>().bullRotation = rot + 90f;
 
             e1.eBulletTimer = e1.eBaseBulletTimer;
         }

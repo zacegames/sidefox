@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -187,18 +187,7 @@ public class Player : MonoBehaviour
     void Update()
     {
 
-        playerMovementDirection = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
-
-        Debug.Log("Player Movement Direction X- " + playerMovementDirection.x);
-        Debug.Log("Player Movement Direction Y- " + playerMovementDirection.y);
-        
-
-
-        //Debug.Log("time.deltatime in update loop - " + Time.deltaTime);
-
-        //  PlayerSpeed = MoveSpeed * Time.deltaTime; //time.Deltatime is used to normalise speed across devices with different hardware
-
-        //  DashSpeed = DashSpeed * Time.deltaTime; //deltatime used to normalise speed of movement across all devices
+        playerMovementDirection = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
 
         //Update the player's position to the global position
         PlayerPosition = transform.position;
@@ -232,28 +221,6 @@ public class Player : MonoBehaviour
         //Debug.Log("V = " + Input.GetAxisRaw("Vertical"));
 
         //Lock gameobject to Camera view - https://answers.unity.com/questions/799656/how-to-keep-an-object-within-the-camera-view.html
-
-        /* 
-        if (Input.GetKey(KeyCode.W))
-         {
-             transform.position += Vector3.up * (MoveSpeed * Time.deltaTime);
-        }
-
-         if (Input.GetKey(KeyCode.S))
-         {
-             transform.position += Vector3.down * (MoveSpeed * Time.deltaTime);
-        }
-
-         if (Input.GetKey(KeyCode.A))
-         {
-             transform.position += Vector3.left * (MoveSpeed * Time.deltaTime);
-        }
-
-         if (Input.GetKey(KeyCode.D))
-         {
-             transform.position += Vector3.right * (MoveSpeed * Time.deltaTime);
-        }
-        */
 
         pos = transform.position;
         pos.x = Mathf.Clamp(pos.x, -TestSceneController.SceneDimensions.x + (PlayerWidth / 2), TestSceneController.SceneDimensions.x - (PlayerWidth / 2));
@@ -310,17 +277,17 @@ public class Player : MonoBehaviour
         }
 
 
-        //JOYSTICK CONTROLS - X - 0.4 for deadzone
-        if (Input.GetAxisRaw("Horizontal") > 0.7f || Input.GetAxisRaw("Horizontal") < -0.7f)
-        {
-            transform.position += new Vector3((Input.GetAxisRaw("Horizontal") * MoveSpeed), 0, 0);
-        }
+        // //JOYSTICK CONTROLS - X - 0.4 for deadzone
+        // if (Input.GetAxisRaw("Horizontal") > 0.7f || Input.GetAxisRaw("Horizontal") < -0.7f)
+        // {
+        //     transform.position += new Vector3((Input.GetAxisRaw("Horizontal") * MoveSpeed), 0, 0);
+        // }
 
-        //JOYSTICK CONTROLS - Y - 0.4 for deadzone
-        if (Input.GetAxisRaw("Vertical") > 0.7f || Input.GetAxisRaw("Vertical") < -0.7f)
-        {
-            transform.position += new Vector3(0, (-Input.GetAxisRaw("Vertical") * MoveSpeed), 0);
-        }
+        // //JOYSTICK CONTROLS - Y - 0.4 for deadzone
+        // if (Input.GetAxisRaw("Vertical") > 0.7f || Input.GetAxisRaw("Vertical") < -0.7f)
+        // {
+        //     transform.position += new Vector3(0, (-Input.GetAxisRaw("Vertical") * MoveSpeed), 0);
+        // }
 
     //    Debug.Log(Input.GetAxisRaw("Vertical"));
 
@@ -374,21 +341,12 @@ public class Player : MonoBehaviour
                 PlayerMaterial.color = DefaultColor;
             }
         }
-               
-        //Commented out for demo - 16/12/2021    
-        /*
-            //PS4 Controls - "joystick button 2" - O - Shoot secondary fire
-            if (Input.GetKeyDown("joystick button 2"))
-        {
-            GameObject _p2ndBull = Instantiate(SecondaryFire, new Vector3(transform.position.x - 1f, transform.position.y, transform.position.z), Quaternion.Euler(0, 0f, -90f));
-        }
-            */        
+                 
         }
 
     private void FixedUpdate()
     {
-        playerRB.velocity = new Vector2 ((playerMovementDirection.x * MoveSpeed),(playerMovementDirection.y * MoveSpeed) * -1);
-        
+        playerRB.MovePosition (playerRB.position +  playerMovementDirection * MoveSpeed * Time.fixedDeltaTime);
     }
 
 

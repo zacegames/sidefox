@@ -100,18 +100,7 @@ public class Boss_1 : MonoBehaviour
 
         Debug.Log("Speeds - " + (bBulletSpeed + bSpeed));
 
-        beBullet.eSetBulletValues(bBulletSpeed, bBulletSpeed, 1, 20, 2, false, transform.rotation);
-
-
         bSpeed = bSpeed * Time.deltaTime;
-
-        //Debug.Log("bBulletPosTop = " + bBulletPosTop);
-
-        //Debug.Log("bBulletPosBtm = " + bBulletPosBtm);
-
-        //Debug.Log("Screen Edge Y = " + bYScreenEdge);
-
-        //bBulletSpeed = -0.05f;
 
         bUp = true;
 
@@ -183,7 +172,7 @@ public class Boss_1 : MonoBehaviour
 
                 bBulletLocalRotation = bBulletPosTop.rotation;
 
-                beBullet.eVertBulletSpeed = 0f;
+                //beBullet.eVertBulletSpeed = 0f;
 
                 Instantiate(bBullet, bBulletLocalPos, bBulletLocalRotation);
 
@@ -195,7 +184,7 @@ public class Boss_1 : MonoBehaviour
                 break;
 
             case 2: //top then delayed bottom shot
-                beBullet.eBulletPattern = 1;
+                //beBullet.eBulletPattern = 1;
                 StartCoroutine("bBulletTopBottomDelay");
                 break;
             //Triple shot
@@ -210,15 +199,15 @@ public class Boss_1 : MonoBehaviour
                 //Top position bullets
                 // beBullet.eVertBulletSpeed = 0f;
 
-                beBullet.eBulletPattern = 1;
+               // beBullet.eBulletPattern = 1;
 
                 Instantiate(bBullet, bBulletLocalPos, bBulletLocalRotation);
 
-                beBullet.eBulletPattern = 2;
+              //  beBullet.eBulletPattern = 2;
 
                 Instantiate(bBullet, bBulletLocalPos, bBulletLocalRotation);
 
-                beBullet.eBulletPattern = 3;
+              //  beBullet.eBulletPattern = 3;
 
                 Instantiate(bBullet, bBulletLocalPos, bBulletLocalRotation);
 
@@ -229,15 +218,15 @@ public class Boss_1 : MonoBehaviour
 
                 Debug.Log(bBulletLocalRotation);
 
-                beBullet.eBulletPattern = 1;
+              //  beBullet.eBulletPattern = 1;
 
                 Instantiate(bBullet, bBulletLocalPos, bBulletLocalRotation);
 
-                beBullet.eBulletPattern = 2;
+              //  beBullet.eBulletPattern = 2;
 
                 Instantiate(bBullet, bBulletLocalPos, bBulletLocalRotation);
 
-                beBullet.eBulletPattern = 3;
+              //  beBullet.eBulletPattern = 3;
 
                 Instantiate(bBullet, bBulletLocalPos, bBulletLocalRotation);
                 break;
@@ -369,17 +358,17 @@ public class Boss_1 : MonoBehaviour
 
             if (i == 0 || i == 3)
             {
-                beBullet.eBulletPattern = 1;
+           //     beBullet.eBulletPattern = 1;
             }
 
             if (i == 1 || i == 4)
             {
-                beBullet.eBulletPattern = 2;
+           //     beBullet.eBulletPattern = 2;
             }
 
             if (i == 2 || i == 5)
             {
-                beBullet.eBulletPattern = 3;
+            //    beBullet.eBulletPattern = 3;
             }
 
             Instantiate(bBullet, bBulletLocalPos, bBulletLocalRotation);

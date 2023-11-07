@@ -1,49 +1,27 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class EnemyBullet : MonoBehaviour
 {
-
-    //Object for the bullet
-    //public GameObject eBulletObj;
-
     //Bullet speed
-    public float eHoriBulletSpeed;
-
-    public float eVertBulletSpeed;
-
-    //Bullet firing pattern
-    public int eBulletPattern;
-
-    //Speed of the enemy that spawned the bullet
-    public float eSpawnSpeed;
+    [SerializeField]
+    public float bullSpeed;
 
     //Damage of the object
-    public float eBulletDamage;
+    [SerializeField]
+    public float bullDamage;
 
-    //See if the enemy is a rotating one
+    public float bullRotation;
+
     public bool eRotationStatus;
 
-    //store the rotation values of the enemy
-    public Quaternion enemyRotationValues;
-
-    //Enemy transform - used for rotating enemies to make sure the bullet goes forward
-    //from their rotation
-    public Vector3 eTransform;
-
     private Rigidbody2D eBullRigid;
-
-    private Vector2 eBulletTargetLocation;
-
-    //Calling this class to set the player health damage
-    //  public Player_Health_Bar pHealthBar;
-
-    //Rigidbody2D rigidbody;
-
-    //    private Vector3 movement;
-
-    void Awake()
+    
+    
+    
+   void Awake()
     {
         //Ignore collision between the player and the bullet
         Physics2D.IgnoreLayerCollision(10, 8);
@@ -57,63 +35,37 @@ public class EnemyBullet : MonoBehaviour
 
     private void Start()
     {
-        eBullRigid = GetComponent<Rigidbody2D>();
+         eBullRigid = GetComponent<Rigidbody2D>();
+        //Debug.Log ("Bullet Rigidbody = " + eBullRigid.velocity);
+
+        eBullMvmt(eRotationStatus);
     }
 
-
-
-    // Update is called once per frame
-    void FixedUpdate()        
-    {
-        eBullMvmt(eRotationStatus, eTransform);
-    }
-
-    public void eSetBulletValues(float eHoriMvmt, float eVertMvmt, int eBullPatt, int eBullDam, float eSpSpeed, bool eRot, Quaternion eRotValues)
-    {
-        eHoriBulletSpeed = eHoriMvmt * Time.deltaTime;
-
-        eVertBulletSpeed = eVertMvmt * Time.deltaTime;
-
-        eBulletPattern = eBullPatt;
-
-        eBulletDamage = eBullDam;
-
-        eSpawnSpeed = eSpSpeed;
-        
-        eRotationStatus = eRot;
-
-        enemyRotationValues = eRotValues;
-    }
-
-    private void eBullMvmt(bool eRotStatus, Vector3 eTrans)
+    public void eBullMvmt(bool eRotStatus)
     {
         
-
-        switch (eBulletPattern)
+        //eBullRigid = GetComponent<Rigidbody2D>();
+        
+        if (!eRotStatus)
         {
-            case 1:
-                if (!eRotStatus)
-                {
-                    transform.position += Vector3.left * eHoriBulletSpeed;
-                }
-                if (eRotStatus)
-                {
+            eBullRigid.velocity = Vector2.left * bullSpeed;
+            
+        }
+        
+        if (eRotStatus)
+        {
+                 
+        Vector3 bulletTarget = Player.PlayerPosition - transform.position;
+        eBullRigid.velocity = new Vector2(bulletTarget.x, bulletTarget.y).normalized * bullSpeed;       
+        float rot = Mathf.Atan2(-bulletTarget.y,-bulletTarget.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(0,0,rot);
 
-                    // eBullRigid.velocity
+        }
+    }
 
-
-                    transform.rotation = enemyRotationValues;
-
-                    Vector2 eBulletTargetLocation = (Vector2)Player.PlayerPosition - eBullRigid.position;
-
-                    eBulletTargetLocation.Normalize();
-
-                    
-                    //transform.position += -transform.right * eHoriBulletSpeed;
-                    //transform.position -= new Vector3(eHoriBulletSpeed, 0, 0f);
-                    transform.position += new Vector3(eBulletTargetLocation.x, eBulletTargetLocation.y,0) * 10f * Time.deltaTime;
-                }
-                break;
+//If the enemy should be having the bullet aim at the player, we do the rotation of the bullet ONC
+    
+            /*
             //Used for boss bullets
             case 2:
 
@@ -131,13 +83,9 @@ public class EnemyBullet : MonoBehaviour
 
                 transform.position -= new Vector3(eHoriBulletSpeed, eVertBulletSpeed, 0f);
                 break;
-            default:
-                transform.position += Vector3.left *  eHoriBulletSpeed;
-                break;
-        }
-    }
+                */
 
-    
+
     
     private void OnBecameInvisible()
     {
@@ -155,7 +103,7 @@ public class EnemyBullet : MonoBehaviour
         if(collision.gameObject.tag == "Player")
         {
             //collision.gameObject.GetComponent<Player>().pHealth -= eBulletDamage;
-            Player.pHealth -= eBulletDamage;
+           // Player.pHealth -= eBulletDamage;
         }
     }
 }

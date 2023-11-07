@@ -65,7 +65,7 @@ public class Enemy_2 : MonoBehaviour
 
         eBullet = eBulletObject.gameObject.GetComponent<EnemyBullet>();
 
-        eBullet.eSetBulletValues(eHoriBulletSpeed, eVertBulletSpeed, eBulletPattern, eBulletDamage, e2Speed, false, transform.rotation);
+        //eBullet.eSetBulletValues(eHoriBulletSpeed, eVertBulletSpeed, eBulletPattern, eBulletDamage, e2Speed, false, transform.rotation);
 
         e2.EnemyMovementPattern = eMvmtPattern;
 

@@ -308,7 +308,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5326234736364721977, guid: cf10fd49dc96c2f44a39adc93af9b6c8, type: 3}
       propertyPath: eHoriBulletSpeed
-      value: 10
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 5326234736364721977, guid: cf10fd49dc96c2f44a39adc93af9b6c8, type: 3}
       propertyPath: eVertBulletSpeed
@@ -689,7 +689,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5326234736364721977, guid: cf10fd49dc96c2f44a39adc93af9b6c8, type: 3}
       propertyPath: eHoriBulletSpeed
-      value: 10
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 5326234736364721977, guid: cf10fd49dc96c2f44a39adc93af9b6c8, type: 3}
       propertyPath: eVertBulletSpeed
@@ -871,7 +871,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1046445125676599663, guid: 9548b4a04eca81b4cbcec25434aea2f8, type: 3}
       propertyPath: MoveSpeed
-      value: 0.1
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 1046445125676599663, guid: 9548b4a04eca81b4cbcec25434aea2f8, type: 3}
       propertyPath: pHealthBar
@@ -1116,7 +1116,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5326234736364721977, guid: cf10fd49dc96c2f44a39adc93af9b6c8, type: 3}
       propertyPath: eHoriBulletSpeed
-      value: 10
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 5326234736364721977, guid: cf10fd49dc96c2f44a39adc93af9b6c8, type: 3}
       propertyPath: eVertBulletSpeed
@@ -1286,7 +1286,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5326234736364721977, guid: cf10fd49dc96c2f44a39adc93af9b6c8, type: 3}
       propertyPath: eHoriBulletSpeed
-      value: 10
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 5326234736364721977, guid: cf10fd49dc96c2f44a39adc93af9b6c8, type: 3}
       propertyPath: eVertBulletSpeed
@@ -1462,7 +1462,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5326234736364721977, guid: cf10fd49dc96c2f44a39adc93af9b6c8, type: 3}
       propertyPath: eHoriBulletSpeed
-      value: 10
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 5326234736364721977, guid: cf10fd49dc96c2f44a39adc93af9b6c8, type: 3}
       propertyPath: eVertBulletSpeed
@@ -1643,7 +1643,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5326234736364721977, guid: cf10fd49dc96c2f44a39adc93af9b6c8, type: 3}
       propertyPath: eHoriBulletSpeed
-      value: 10
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 5326234736364721977, guid: cf10fd49dc96c2f44a39adc93af9b6c8, type: 3}
       propertyPath: eVertBulletSpeed
@@ -1922,7 +1922,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5326234736364721977, guid: cf10fd49dc96c2f44a39adc93af9b6c8, type: 3}
       propertyPath: eHoriBulletSpeed
-      value: 10
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 5326234736364721977, guid: cf10fd49dc96c2f44a39adc93af9b6c8, type: 3}
       propertyPath: eVertBulletSpeed
@@ -2084,7 +2084,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5326234736364721977, guid: cf10fd49dc96c2f44a39adc93af9b6c8, type: 3}
       propertyPath: eHoriBulletSpeed
-      value: 10
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 5326234736364721977, guid: cf10fd49dc96c2f44a39adc93af9b6c8, type: 3}
       propertyPath: eVertBulletSpeed
@@ -2268,6 +2268,10 @@ PrefabInstance:
       propertyPath: eHealth
       value: 300
       objectReference: {fileID: 0}
+    - target: {fileID: 5326234736364721977, guid: cf10fd49dc96c2f44a39adc93af9b6c8, type: 3}
+      propertyPath: enemybullet
+      value: 
+      objectReference: {fileID: 4386214772295992620, guid: 4a72b3d2cdd88994b922c2948760d660, type: 3}
     - target: {fileID: 5326234736364721977, guid: cf10fd49dc96c2f44a39adc93af9b6c8, type: 3}
       propertyPath: eBulletDamage
       value: 10
@@ -2456,7 +2460,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5326234736364721977, guid: cf10fd49dc96c2f44a39adc93af9b6c8, type: 3}
       propertyPath: eHoriBulletSpeed
-      value: 10
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 5326234736364721977, guid: cf10fd49dc96c2f44a39adc93af9b6c8, type: 3}
       propertyPath: eVertBulletSpeed
@@ -2733,7 +2737,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5326234736364721977, guid: cf10fd49dc96c2f44a39adc93af9b6c8, type: 3}
       propertyPath: eHoriBulletSpeed
-      value: 10
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 5326234736364721977, guid: cf10fd49dc96c2f44a39adc93af9b6c8, type: 3}
       propertyPath: eVertBulletSpeed
@@ -2842,7 +2846,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5326234736364721977, guid: cf10fd49dc96c2f44a39adc93af9b6c8, type: 3}
       propertyPath: eHoriBulletSpeed
-      value: 10
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 5326234736364721977, guid: cf10fd49dc96c2f44a39adc93af9b6c8, type: 3}
       propertyPath: eVertBulletSpeed
@@ -2943,7 +2947,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5326234736364721977, guid: cf10fd49dc96c2f44a39adc93af9b6c8, type: 3}
       propertyPath: eHoriBulletSpeed
-      value: 10
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 5326234736364721977, guid: cf10fd49dc96c2f44a39adc93af9b6c8, type: 3}
       propertyPath: eVertBulletSpeed
@@ -3044,7 +3048,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5326234736364721977, guid: cf10fd49dc96c2f44a39adc93af9b6c8, type: 3}
       propertyPath: eHoriBulletSpeed
-      value: 10
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 5326234736364721977, guid: cf10fd49dc96c2f44a39adc93af9b6c8, type: 3}
       propertyPath: eVertBulletSpeed
@@ -3145,7 +3149,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5326234736364721977, guid: cf10fd49dc96c2f44a39adc93af9b6c8, type: 3}
       propertyPath: eHoriBulletSpeed
-      value: 10
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 5326234736364721977, guid: cf10fd49dc96c2f44a39adc93af9b6c8, type: 3}
       propertyPath: eVertBulletSpeed
