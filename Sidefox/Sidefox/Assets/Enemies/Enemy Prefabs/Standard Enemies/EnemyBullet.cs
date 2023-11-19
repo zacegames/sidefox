@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using UnityEngine;
@@ -7,15 +7,17 @@ public class EnemyBullet : MonoBehaviour
 {
     //Bullet speed
     [SerializeField]
-    public float bullSpeed;
+    public float bulletSpeed;
 
     //Damage of the object
     [SerializeField]
-    public float bullDamage;
+    public float bulletDamage;
 
     public float bullRotation;
 
     public bool eRotationStatus;
+
+    public Quaternion bulletRotation;
 
     private Rigidbody2D eBullRigid;
     
@@ -48,17 +50,29 @@ public class EnemyBullet : MonoBehaviour
         
         if (!eRotStatus)
         {
-            eBullRigid.velocity = Vector2.left * bullSpeed;
+            // eBullRigid.velocity = Vector2.left * bulletSpeed;
+
+            eBullRigid.velocity = -transform.right * bulletSpeed;
+                 
             
         }
         
         if (eRotStatus)
         {
+
+            //This make the bullet go straight in the direction that their rotated in.
+            /* NOTE! - This is dependant of the rotation of the gameobject and sprite !! */
+            eBullRigid.velocity = -transform.right * bulletSpeed;
                  
+        
+        /*
+        //The below code makes the bullet aim at the players position 
         Vector3 bulletTarget = Player.PlayerPosition - transform.position;
-        eBullRigid.velocity = new Vector2(bulletTarget.x, bulletTarget.y).normalized * bullSpeed;       
-        float rot = Mathf.Atan2(-bulletTarget.y,-bulletTarget.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Euler(0,0,rot);
+        // eBullRigid.velocity = new Vector2(bulletTarget.x, bulletTarget.y).normalized * bulletSpeed;
+
+        //Not sure if this is needed?? - TEST (set in bullet spawn point in enemy script)
+        // transform.rotation = bulletRotation;
+        */
 
         }
     }

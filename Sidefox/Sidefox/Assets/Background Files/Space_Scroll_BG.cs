@@ -21,19 +21,16 @@ public class Space_Scroll_BG : MonoBehaviour
    // }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-       if(PlaySpeed != Player.PlayerSpeed * BG_Multiplier)
-        {
-            PlaySpeed = Player.PlayerSpeed * BG_Multiplier;
-        }
-
        if (transform.position.x < BG_End_Pos)
        {
             transform.position = new Vector3(BG_Start_Pos, 0f, 1f);
        }
 
-        transform.position -= new Vector3(PlaySpeed, 0f, 0f);
+        transform.position -= new Vector3(Player.PlayerSpeed, 0f, 0f) * Time.fixedDeltaTime;
+
+        Debug.Log("Player Move Speed = " + Player.PlayerSpeed);
         /*
         //If the player is dashing
         if (Input.GetKey(KeyCode.Q) && !Player.DashRecharge || Input.GetKey("joystick button 0") && !Player.DashRecharge)

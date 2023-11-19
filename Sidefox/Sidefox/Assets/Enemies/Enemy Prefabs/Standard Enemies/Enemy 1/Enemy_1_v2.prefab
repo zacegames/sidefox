@@ -30,11 +30,12 @@ Transform:
   m_GameObject: {fileID: 4306098902866180974}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.7, y: 0.09, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 876395549413560242}
+  - {fileID: 2018617005045380584}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &6098383101011938351
@@ -103,9 +104,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   e1Speed: 0.05
   RotateTowardsPlayer: 0
-  e1Bull: {fileID: 6153515352083269034, guid: 4a72b3d2cdd88994b922c2948760d660, type: 3}
-  eHoriBulletSpeed: 0.02
-  eVertBulletSpeed: 0.02
+  enemybullet: {fileID: 4386214772295992620, guid: 4a72b3d2cdd88994b922c2948760d660, type: 3}
+  BulletSpeed: 0
   eBulletDamage: 10
   eBaseBulletTimer: 2
   eBulletTimer: 0
@@ -114,7 +114,6 @@ MonoBehaviour:
   e1e3Amp: 0
   e1e3Freq: 0
   hitMat: {fileID: 2100000, guid: 47fc64c4985f6b74ebbee3f71770989a, type: 2}
-  enemybullet: {fileID: 4386214772295992620, guid: 4a72b3d2cdd88994b922c2948760d660, type: 3}
   EnemyStartPos: 0
   EnemyMovementPattern: 0
   Overall_eHealth: 100
@@ -130,6 +129,7 @@ MonoBehaviour:
   journeyTime: 1
   HealthBar: {fileID: 6791454567356653712}
   EnemyHealthBarCanvas: {fileID: 0}
+  bulletSpawnPoint: {fileID: 6856839288442443526}
 --- !u!114 &588983907922631047
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -217,6 +217,37 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 4.646747, y: 4.521259}
   m_EdgeRadius: 0
+--- !u!1 &6856839288442443526
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2018617005045380584}
+  m_Layer: 8
+  m_Name: Bullet Spawn Point
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2018617005045380584
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6856839288442443526}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.3, y: -0.15, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3448010882045177292}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1311459575971061612
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -311,7 +342,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8112621806202331792, guid: 5f7cd0b16376e5544b169abe59aee4d4, type: 3}
       propertyPath: m_Name
-      value: Canvas
+      value: Health Bar
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

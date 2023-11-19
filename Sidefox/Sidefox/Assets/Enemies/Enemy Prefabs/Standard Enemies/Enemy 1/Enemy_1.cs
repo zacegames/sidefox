@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class Enemy_1 : MonoBehaviour
 {
 
-
     //Scene Controller to refer to
     //[Header("This needs to be changed depending on the scene", order = 1)]
     //public GameObject CurrSceneController;
@@ -44,9 +43,6 @@ public class Enemy_1 : MonoBehaviour
     private Material defaultMat;
 
     public Material hitMat;
-
-    //GameObject for the next enemy bullet
-    
 
     //Set the enemy start position based on smovement pattern
     public int EnemyStartPos;
@@ -128,6 +124,10 @@ public class Enemy_1 : MonoBehaviour
     private float eRePosTime;
 
     // Start is called before the first frame update
+
+    [SerializeField]
+    //Get this objects position to spawn bullets in front of the enemy ships
+    private GameObject bulletSpawnPoint;
 
 void Start()
     {
@@ -374,17 +374,15 @@ void Start()
 
         if (e1.eBulletTimer <= 0)
         {                      
-            GameObject bullet = Instantiate(enemybullet, new Vector3(transform.position.x - 2, transform.position.y, transform.position.z), transform.rotation);
+            GameObject bullet = Instantiate(enemybullet, new Vector3(bulletSpawnPoint.transform.position.x, bulletSpawnPoint.transform.position.y, bulletSpawnPoint.transform.position.z), transform.rotation);
 
-            bullet.GetComponent<EnemyBullet>().bullDamage = 10f;
+            bullet.GetComponent<EnemyBullet>().bulletDamage = 10f;
 
-            bullet.GetComponent<EnemyBullet>().bullSpeed = 10f;
+            bullet.GetComponent<EnemyBullet>().bulletSpeed = 10f;
 
             bullet.GetComponent<EnemyBullet>().eRotationStatus = RotateTowardsPlayer;
 
-            // float rot = Mathf.Atan2(-transform.position.y,-transform.position.x) * Mathf.Rad2Deg;
-
-            // bullet.GetComponent<EnemyBullet>().bullRotation = rot + 90f;
+            bullet.GetComponent<EnemyBullet>().bulletRotation = transform.rotation;
 
             e1.eBulletTimer = e1.eBaseBulletTimer;
         }

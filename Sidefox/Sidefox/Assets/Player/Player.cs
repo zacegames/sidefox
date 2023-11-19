@@ -144,7 +144,7 @@ public class Player : MonoBehaviour
 
         playerRB = GetComponent<Rigidbody2D>();
 
-        //PlayerSpeed = MoveSpeed * Time.deltaTime; //time.Deltatime is used to normalise speed across devices with different hardware
+        PlayerSpeed = MoveSpeed;
 
        // Debug.Log("Move Speed - " + MoveSpeed);
         //Debug.Log("time.deltatime - " + Time.deltaTime);
